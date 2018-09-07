@@ -324,7 +324,8 @@ def main():
 
     result = {'changed': False, 'server_capabilities': capabilities.get('server_capabilities', [])}
     before = None
-    locked = False
+    # NICKS NEW CHANGE ...
+    nick_is_locked = False
     try:
         if module.params['backup']:
             response = get_config(module, target, lock=execute_lock)
