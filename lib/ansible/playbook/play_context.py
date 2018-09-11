@@ -108,6 +108,7 @@ RESET_VARS = (
     'ansible_docker_extra_args',
     'ansible_ssh_host',
     'ansible_ssh_pass',
+    'ansible_ssh_host_key',
     'ansible_ssh_port',
     'ansible_ssh_user',
     'ansible_ssh_private_key_file',
@@ -135,6 +136,7 @@ class PlayContext(Base):
     # connection fields, some are inherited from Base:
     # (connection, port, remote_user, environment, no_log)
     _remote_addr = FieldAttribute(isa='string')
+    _host_key = FieldAttribute(isa='string')
     _password = FieldAttribute(isa='string')
     _timeout = FieldAttribute(isa='int', default=C.DEFAULT_TIMEOUT)
     _connection_user = FieldAttribute(isa='string')
@@ -217,7 +219,6 @@ class PlayContext(Base):
         Configures this connection information instance with data from
         the play class.
         '''
-
         if play.connection:
             self.connection = play.connection
 

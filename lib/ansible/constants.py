@@ -138,6 +138,7 @@ MAGIC_VARIABLE_MAPPING = dict(
     # connection common
     remote_addr=('ansible_ssh_host', 'ansible_host'),
     remote_user=('ansible_ssh_user', 'ansible_user'),
+    host_key=('ansible_ssh_host_key', 'ansible_host_key'),
     password=('ansible_ssh_pass', 'ansible_password'),
     port=('ansible_ssh_port', 'ansible_port'),
     pipelining=('ansible_ssh_pipelining', 'ansible_pipelining'),

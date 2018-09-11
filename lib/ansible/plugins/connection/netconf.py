@@ -276,17 +276,18 @@ class Connection(NetworkConnectionBase):
 
         try:
             self._manager = manager.connect(
-                host=self._play_context.remote_addr,
-                port=self._play_context.port or 830,
-                username=self._play_context.remote_user,
-                password=self._play_context.password,
-                key_filename=self.key_filename,
-                hostkey_verify=self.get_option('host_key_checking'),
-                look_for_keys=self.get_option('look_for_keys'),
-                device_params=device_params,
-                allow_agent=self._play_context.allow_agent,
-                timeout=self._play_context.timeout,
-                ssh_config=ssh_config
+                host            = self._play_context.remote_addr,
+                port            = self._play_context.port or 830,
+                username        = self._play_context.remote_user,
+                password        = self._play_context.password,
+                hostkey         = self._play_context.host_key,
+                key_filename    = self.key_filename,
+                hostkey_verify  = self.get_option('host_key_checking'),
+                look_for_keys   = self.get_option('look_for_keys'),
+                device_params   = device_params,
+                allow_agent     = self._play_context.allow_agent,
+                timeout         = self._play_context.timeout,
+                ssh_config      = ssh_config
             )
         except SSHUnknownHostError as exc:
             raise AnsibleConnectionFailure(str(exc))
