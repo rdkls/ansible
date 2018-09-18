@@ -102,6 +102,7 @@ RESET_VARS = (
     'ansible_connection',
     'ansible_user',
     'ansible_host',
+    'ansible_host_key',
     'ansible_port',
 
     # TODO: ???
